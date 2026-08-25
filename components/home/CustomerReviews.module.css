@@ -1,0 +1,189 @@
+.section {
+  width: 100%;
+  padding: 72px 0;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 112px 0;
+  }
+}
+
+/* Header Area */
+.header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto var(--space-12);
+}
+
+.eyebrowWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  box-shadow: 0 0 8px rgba(232, 163, 61, 0.8);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.eyebrowLine {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(232, 163, 61, 0.6) 0%, transparent 100%);
+}
+
+.heading {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.03em;
+  color: var(--color-foreground);
+  line-height: 1.15;
+  margin-bottom: var(--space-3);
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-secondary);
+}
+
+/* Marquee Rows Container */
+.marqueeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+/* Viewport with Gradient Fade Masks */
+.viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+}
+
+/* Track Base */
+.track {
+  display: flex;
+  width: max-content;
+  align-items: stretch;
+  gap: var(--space-6);
+  will-change: transform;
+}
+
+.viewport:hover .track {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-6);
+  flex-shrink: 0;
+}
+
+/* Row 1: Right to Left */
+.trackLeft {
+  animation: marqueeLeft 48s linear infinite;
+}
+
+/* Row 2: Left to Right */
+.trackRight {
+  animation: marqueeRight 54s linear infinite;
+}
+
+@keyframes marqueeLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Empty & Error State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.emptyTitle {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-foreground);
+  margin-bottom: var(--space-2);
+}
+
+.emptyText {
+  font-size: 0.9375rem;
+  color: var(--color-secondary);
+  line-height: 1.5;
+  max-width: 440px;
+}
+
+/* Reduced Motion Mode */
+@media (prefers-reduced-motion: reduce) {
+  .trackLeft,
+  .trackRight {
+    animation: none;
+    transform: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .viewport {
+    mask-image: none;
+    -webkit-mask-image: none;
+    overflow-x: auto;
+  }
+}

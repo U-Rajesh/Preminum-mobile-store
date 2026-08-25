@@ -1,0 +1,141 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: 40px 0;
+  background: rgba(24, 23, 22, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 48px 0;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* Viewport with Gradient Fade Masks */
+.viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+/* Moving Track */
+.track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  white-space: nowrap;
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.viewport:hover .track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Brand Item Groups */
+.group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--space-6);
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244, 242, 238, 0.75);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  cursor: default;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .item {
+    font-size: 1.3rem;
+    padding: 0 var(--space-8);
+  }
+}
+
+.item:hover {
+  color: #ffffff;
+  transform: scale(1.04);
+}
+
+.separator {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  box-shadow: 0 0 8px rgba(232, 163, 61, 0.7);
+  margin-left: var(--space-6);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .separator {
+    margin-left: var(--space-8);
+  }
+}
+
+/* Reduced Motion Mode */
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+    transform: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .viewport {
+    mask-image: none;
+    -webkit-mask-image: none;
+    overflow-x: auto;
+  }
+}

@@ -1,0 +1,290 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+/* Header & Title */
+.brand {
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-1);
+}
+
+.title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.025em;
+  color: var(--color-foreground);
+  line-height: 1.2;
+}
+
+/* Stock Status */
+.stock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-medium);
+  width: fit-content;
+}
+
+.stockDot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.inStock {
+  color: #15803d;
+}
+
+.inStock .stockDot {
+  background-color: #16a34a;
+}
+
+.limitedStock {
+  color: #c2410c;
+}
+
+.limitedStock .stockDot {
+  background-color: #ea580c;
+}
+
+.outOfStock {
+  color: var(--color-muted);
+}
+
+.outOfStock .stockDot {
+  background-color: var(--color-muted);
+}
+
+/* Pricing Area */
+.priceSection {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.currentPrice {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+  color: var(--color-foreground);
+}
+
+.originalPrice {
+  font-size: 1.125rem;
+  color: var(--color-muted);
+  text-decoration: line-through;
+}
+
+.discountBadge {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  background-color: rgba(232, 163, 61, 0.15);
+  border: 1px solid rgba(232, 163, 61, 0.3);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.02em;
+}
+
+/* CTA Area */
+.ctaSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.buttonRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+@media (min-width: 480px) {
+  .buttonRow {
+    flex-direction: row;
+  }
+}
+
+.addToCartBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  flex: 1;
+  height: 48px;
+  padding: 0 var(--space-6);
+  background-color: #ffffff;
+  color: #17140f;
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.addToCartBtn:hover:not(:disabled) {
+  background-color: #f3efe8;
+  border-color: #f3efe8;
+  color: #17140f;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.addedBtn {
+  background-color: #22c55e !important;
+  color: #ffffff !important;
+  border-color: #22c55e !important;
+}
+
+.addToCartBtn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.contactBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 48px;
+  padding: 0 var(--space-5);
+  background-color: rgba(24, 23, 22, 0.66);
+  color: var(--color-foreground);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.contactBtn:hover {
+  background-color: rgba(36, 34, 32, 0.85);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-foreground);
+}
+
+.contactBtn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.disabledBtn {
+  background-color: rgba(14, 12, 10, 0.5);
+  color: var(--color-muted);
+  cursor: not-allowed;
+  width: 100%;
+}
+
+.ctaReassurance {
+  font-size: 0.8125rem;
+  color: var(--color-secondary);
+  text-align: center;
+}
+
+/* Key Specifications Grid */
+.specsSection {
+  margin-top: var(--space-4);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.sectionHeading {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-foreground);
+  margin-bottom: var(--space-4);
+}
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (min-width: 480px) {
+  .specsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.specCard {
+  background-color: rgba(24, 23, 22, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.specLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-secondary);
+}
+
+.specValue {
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-foreground);
+}
+
+/* Description Section */
+.descriptionSection {
+  margin-top: var(--space-4);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.descriptionText {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-secondary);
+  white-space: pre-line;
+}
+
+/* Admin Storefront Mode Banner */
+.adminBanner {
+  background: rgba(234, 179, 8, 0.06);
+  border: 1px solid rgba(234, 179, 8, 0.25);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.adminBadgeRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: #eab308;
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.adminNoticeText {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-secondary);
+  margin: 0;
+}

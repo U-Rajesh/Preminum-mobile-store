@@ -1,0 +1,269 @@
+.page {
+  width: 100%;
+  padding: 48px 0 80px;
+  min-height: 80vh;
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding: 64px 0 96px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page {
+    padding: 80px 0 112px;
+  }
+}
+
+/* Hero Section */
+.hero {
+  max-width: 680px;
+  margin-bottom: var(--space-12);
+}
+
+.eyebrow {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.025em;
+  color: var(--color-foreground);
+  line-height: 1.15;
+  margin-bottom: var(--space-3);
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-secondary);
+}
+
+/* Two-Column Layout */
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .layoutGrid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-12);
+  }
+}
+
+/* Left Column: Info & Location Cards */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.infoCard {
+  background-color: rgba(24, 23, 22, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  box-shadow: var(--shadow-card);
+}
+
+@media (min-width: 768px) {
+  .infoCard {
+    padding: var(--space-8);
+  }
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-foreground);
+  margin-bottom: var(--space-2);
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.infoIcon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.infoContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoHeading {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 2px;
+}
+
+.infoValue {
+  font-size: 0.9375rem;
+  color: var(--color-foreground);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.infoLink:hover {
+  color: var(--color-accent);
+}
+
+.infoLink:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Store / Location Visual Card */
+.locationCard {
+  background-color: rgba(24, 23, 22, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+}
+
+/* Tasteful CSS Map Placeholder */
+.mapPlaceholder {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background-color: rgba(14, 12, 10, 0.8);
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pinMarker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.pinDot {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  color: #17140f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px rgba(232, 163, 61, 0.4);
+}
+
+.pinPulse {
+  width: 12px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background-color: rgba(232, 163, 61, 0.3);
+}
+
+.locationBody {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.locationTitle {
+  font-size: 1.05rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-foreground);
+  margin-bottom: 2px;
+}
+
+.locationSubtitle {
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+}
+
+.directionsBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  height: 42px;
+  background-color: rgba(14, 12, 10, 0.6);
+  color: var(--color-foreground);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.directionsBtn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.directionsBtn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Skeleton Loading */
+.skeletonLine {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonBox {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-xl);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeletonLine,
+  .skeletonBox {
+    animation: none;
+  }
+}
