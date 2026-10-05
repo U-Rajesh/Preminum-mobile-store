@@ -38,7 +38,7 @@ export default function Hero() {
               </Link>
 
               <Link href="/mobiles" className={styles.secondaryCta}>
-                <span>View Collection</span>
+                <span>Collection</span>
               </Link>
             </div>
           </div>
